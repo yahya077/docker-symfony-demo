@@ -13,10 +13,18 @@ class ProviderController {
      * @param ProviderService $providerService
      * @return JsonResponse
      */
-    public function index(ProviderService $providerService): JsonResponse
+    public function first(ProviderService $providerService): JsonResponse
     {
-        $response = $providerService->getFirstProviderResponse();
-        return new JsonResponse($response);
+        return new JsonResponse($providerService->getFirstProviderResponse());
+    }
+    /**
+     * @Route("/secondProvider", name="app_second_provider")
+     * @param ProviderService $providerService
+     * @return JsonResponse
+     */
+    public function second(ProviderService $providerService): JsonResponse
+    {
+        return new JsonResponse($providerService->getSecondProviderResponse());
     }
 
 }
