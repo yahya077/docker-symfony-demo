@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use App\Service\ProviderService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ProviderController {
+class ProviderController extends AbstractController  {
 
     /**
      * @Route("/firstProvider", name="app_first_provider")
