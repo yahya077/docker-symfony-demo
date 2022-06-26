@@ -13,7 +13,21 @@ class TaskService {
 
     public function all():array
     {
-        return $this->doctrine->getRepository(Task::class)->findAll();
+        $data = $this->doctrine->getRepository(Task::class)->findAll();
+
+        $products = [];
+
+        foreach ($data as $product)
+        {
+            $products[] = [
+                'id' => $product->getId(),
+                'name' => $product->getName(),
+                'difficulty' => $product->getDifficulty(),
+                'hours' => $product->getHours(),
+            ];
+        }
+
+        return $products;
     }
 
 }
